@@ -1,0 +1,179 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+//    id 'kotlin-parcelize'
+    id 'kotlin-android-extensions'
+
+    // push
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "kr.co.lina.ga"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 18
+        versionName "1.0.82"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+
+    buildFeatures{
+        viewBinding true
+    }
+
+    buildTypes {
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            // Signing
+//            signingConfig signingConfigs.release
+
+            defaultConfig {
+                archivesBaseName = "GA_v${versionName}(${versionCode})"
+            }
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Signing
+//            signingConfig signingConfigs.release
+            zipAlignEnabled true
+
+            defaultConfig {
+                archivesBaseName = "GA_v${versionName}(${versionCode})"
+            }
+        }
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+    }
+
+    flavorDimensions 'mode'
+    productFlavors {
+        // 개발계 설정.
+        DEV {
+            dimension 'mode'
+            applicationId "kr.co.lina.gadev"
+//            applicationIdSuffix '.dev'
+            //buildConfigField ("String", "server_url", '"https://gatest.lina.co.kr/html/gap/GM/GMU650M0.html"')
+            //buildConfigField ("String", "server_url", '"http://192.168.0.179:8080"')
+            //buildConfigField ("String", "server_url", '"https://gadev.lina.co.kr/html/gap/GP/GPN630M0.html"')
+            buildConfigField ('boolean', 'DEBUG_WEB', 'true')
+            manifestPlaceholders = [appLabel: '라이나G(개발)']
+        }
+        // 운영계 설정.
+        PRD {
+            dimension 'mode'
+            applicationId "kr.co.lina.ga"
+            //buildConfigField ("String", "server_url", '"https://gadev.lina.co.kr/html/gap/GP/GPN630M0.html"')
+            //buildConfigField ("String", "server_url", '"https://gadev.lina.co.kr/html/gap/GP/GPN301M0.html"') // 서 BJ
+            //buildConfigField ("String", "server_url", '"http://gadev.lina.co.kr/html/gap/GP/GPN525M1.html"')
+            buildConfigField ('boolean', 'DEBUG_WEB', 'true')
+            manifestPlaceholders = [appLabel: '라이나G']
+        }
+    }
+
+    defaultConfig {
+        ndk {
+            abiFilters  'armeabi', 'armeabi-v7a', 'arm64-v8a' // , 'x86'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+repositories { flatDir { dirs 'src/main/libs' } }
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.biometric:biometric:1.1.0'
+    implementation 'androidx.biometric:biometric-ktx:1.2.0-alpha04'
+
+    implementation files('src/main/libs/mtk_v4.6.0.63.jar')
+    implementation files('src/main/libs/RSLicenseSDK_1.0.3.jar')
+    implementation name: 'mvc_b2b2c_3.7.8.2306_211202_bd51', ext: 'aar'
+    implementation 'androidx.test:core-ktx:1.4.0'
+
+    testImplementation 'junit:junit:'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Crop Library
+    //implementation project(':openCVLibrary2.4.13.1')
+    implementation 'com.github.chrisbanes.photoview:library:1.2.4'
+    implementation project(':documentscanner')
+
+    // Scanner
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+    //Data Mapping
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    // Retrofit2
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Recycler
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    // ViewModel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-runtime:2.5.0-alpha02"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-alpha02"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.0-alpha02'
+
+    // Localization Library
+    implementation 'com.akexorcist:localization:1.2.6'
+
+    // AppIron
+    implementation files('src/main/libs/appiron_android_v2.13.2.jar')
+
+    // FIDO : VestPin & Oscar
+    api ':oscar-release@aar'
+    implementation name: 'vestpin-release_1.1.8_6', ext: 'aar'
+    implementation("androidx.biometric:biometric:1.2.0-alpha03")
+
+    // push
+    //implementation platform('com.google.firebase:firebase-bom:29.3.1')
+    //implementation 'com.google.firebase:firebase-analytics-ktx'
+    //implementation 'com.google.firebase:firebase-messaging-ktx:23.0.2'
+
+    // Push - TMS
+    implementation files('src/main/libs/SDK_Android_TMS_ea11721.aar')
+    implementation 'com.android.volley:volley:1.1.1' //최신버전 적용 권장
+
+    //FCM
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+}

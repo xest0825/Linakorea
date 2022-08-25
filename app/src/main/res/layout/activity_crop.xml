@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <ImageView
+        android:id="@+id/picture_cropped"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/paper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/paper_rect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTransparent" />
+
+    <LinearLayout
+        android:id="@+id/crop_layer"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:background="@color/colorBlack"
+        android:weightSum="2"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:id="@+id/crop_prev_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/crop_prev"
+                android:layout_width="16dp"
+                android:layout_height="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/camera_preview_back"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/crop_prev_txt"
+                android:layout_marginBottom="7dp"
+                />
+            <TextView
+                android:id="@+id/crop_prev_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crop_prev"
+                android:layout_centerHorizontal="true"
+                android:textSize="13.5sp"
+                android:lineHeight="36.5sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/crop_apply_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/crop_apply"
+                android:layout_width="16dp"
+                android:layout_height="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/camera_preview_check"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/crop_apply_txt"
+                android:layout_marginBottom="7dp"
+                />
+            <TextView
+                android:id="@+id/crop_apply_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crop_apply"
+                android:layout_centerHorizontal="true"
+                android:textSize="13.5sp"
+                android:lineHeight="36.5sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/crop_layer_02"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:background="@color/colorBlack"
+        android:weightSum="2"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:id="@+id/crop_back_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/crop_back"
+                android:layout_width="16dp"
+                android:layout_height="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/camera_preview_back"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/crop_back_txt"
+                android:layout_marginBottom="7dp"
+                />
+            <TextView
+                android:id="@+id/crop_back_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crop_prev"
+                android:layout_centerHorizontal="true"
+                android:textSize="13.5sp"
+                android:lineHeight="36.5sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/crop_upload_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/crop_upload"
+                android:layout_width="16dp"
+                android:layout_height="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/camera_preview_upload"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/crop_upload_txt"
+                android:layout_marginBottom="7dp"
+                />
+
+            <TextView
+                android:id="@+id/crop_upload_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/crop_upload"
+                android:textSize="13.5sp"
+                android:lineHeight="36.5sp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

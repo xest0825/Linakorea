@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Lina GA Bridge Test Page</title>
+
+	<script src="./jquery-3.6.0.slim.min.js"></script>
+	<script src="./appBridge.js"></script>
+
+<body>
+<h2> Bridge Function Test Page</h2>
+<p>Mobile Type : <span id="mobileType"></span></p> <br>
+
+<input name='search' type='search' placeholder="Input type is search" id="test"/>
+<Button id="testAlert" style="width: 30%; height: 60px; font-size: 18pt;">Test Alert</Button>
+<Button id="testConfirm" style="width: 30%; height: 60px; font-size: 18pt;">Test Confirm</Button>
+
+<p><Button id="getAppVersion" style="width: 80%; height: 60px; font-size: 18pt;"> getAppVersion</Button><p><br>
+
+<p><Button id="getOSVersion" style="width: 80%; height: 60px; font-size: 18pt;"> getOSVersion</Button><p><br>
+
+<p><Button id="getDeviceId" style="width: 80%; height: 60px; font-size: 18pt;">getDeviceId</Button><p><br>
+
+<p><Button id="getSecureText" style="width: 80%; height: 60px; font-size: 18pt;">getSecureText</Button><p><br>
+
+<p><Button id="runVaccine" style="width: 80%; height: 60px; font-size: 18pt;">runVaccine</Button><p><br>
+
+<p><Button id="getDeviceAuthInfo" style="width: 80%; height: 60px; font-size: 18pt;">getDeviceAuthInfo</Button><p><br>
+
+<p><Button id="setLoginType" style="width: 80%; height: 60px; font-size: 18pt;">setLoginType</Button><p><br>
+
+<p><Button id="getLoginType" style="width: 80%; height: 60px; font-size: 18pt;">getLoginType</Button><p><br>
+
+<p><Button id="runAppIron" style="width: 80%; height: 60px; font-size: 18pt;">AppIron 실행</Button><p><br>
+
+<p><Button id="uploadCameraImg" style="width: 80%; height: 60px; font-size: 18pt;">upload camera image</Button><p><br>
+
+<p><Button id="uploadGalleryImg" style="width: 80%; height: 60px; font-size: 18pt;">upload Gallery image</Button><p><br>
+
+<p><Button id="getPushToken" style="width: 80%; height: 60px; font-size: 18pt;">get Push Token</Button><p><br>
+
+<p><Button id="goOnlineTest" style="width: 80%; height: 60px; font-size: 18pt">온라인 테스트 페이지로 이동</Button><p><br>
+
+<p><Button id="closeApp" style="width: 80%; height: 60px; font-size: 18pt">앱 종료</Button><p><br>
+
+<p><Button id="clearCache" style="width: 80%; height: 60px; font-size: 18pt">캐시 삭제</Button><p><br>
+
+<p><Button id="connectOscar" style="width: 80%; height: 60px; font-size: 18pt">connect Oscar</Button><p><br>
+
+<p><Button id="writeOscar" style="width: 80%; height: 60px; font-size: 18pt">write Oscar</Button><p><br>
+
+<p><Button id="setTmsId" style="width: 80%; height: 60px; font-size: 18pt">setTmsId</Button><p><br>
+
+<p><h3> apiResult : <span id="apiResult" style="font-size: 18pt"></span></h3></p>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            let mobileType = swichDevice();
+            $('#mobileType').html(mobileType);
+
+            $("#reload").click(function(){
+                window.location.reload();
+            });
+
+			 $('#test').keyup(function(e){
+                if(e.keyCode==13){
+                    alert(e.keyCode);
+                }
+            });
+
+            $('#testAlert').click(function(){
+                alert("Alert 입니다. ");
+            });
+
+            $('#testConfirm').click(function(){
+
+                if (!confirm("확인(예) 또는 취소(아니오)를 선택해주세요.")) {
+                    // 취소(아니오) 버튼 클릭 시 이벤트
+                    alert("<아니오>를 눌렀습니다.");
+                } else {
+                    // 확인(예) 버튼 클릭 시 이벤트
+                    alert("<예>를 눌렀습니다.");
+                }
+            });
+
+             $('#getAppVersion').click(function(){
+                var sendData = {};
+                sendData.command ="api";
+                sendData.action ="test";
+
+                gnx_app_master.call('getAppVersion', function(res){
+                    let versionName = res.appVersion;
+                    console.log(versionName);
+                    $('#apiResult').html(versionName);
+                }, sendData);
+             });
+
+             $('#getOSVersion').click(function(){
+                var sendData = {};
+                sendData.command ="api";
+                sendData.action ="test";
+
+                gnx_app_master.call('getOSVersion', function(res){
+                    let os = res.os;
+                    let version = res.version;
+                    console.log(version);
+                    $('#apiResult').html(os + "," + version);
+                }, sendData);
+             });
+
+             $('#getDeviceId').click(function(){
+                gnx_app_master.call('getDeviceId', function(res){
+                    let deviceId = res.deviceId;
+                    console.log(deviceId);
+                    $('#apiResult').html(deviceId);
+                });
+             });
+
+             $('#getSecureText').click(function(){
+                gnx_app_master.call('getSecureText', function(res){
+                    if(res.state == "1"){
+                        $('#apiResult').html("secure Keyboard canceled...");
+                    } else {
+                        $('#apiResult').html(res.result);
+                    }
+                });
+             });
+
+            $('#runVaccine').click(function(){
+               gnx_app_master.call('runVaccine', function(res){
+                   let result = res.result;
+                   console.log(result);
+                   $('#apiResult').html(result);
+               });
+            });
+
+            $('#getDeviceAuthInfo').click(function(){
+               gnx_app_master.call('getDeviceAuthInfo',function(res){
+                   let deviceSupportAuthType = res.deviceSupportAuthType; //디바이스 지원 인증 0: 생체인증 지원 불가 단말, 1:등록된 생체인증 없음, 2:지문, 3:face ID
+                   let authString = "";
+                    switch(deviceSupportAuthType){
+                        case "0":
+                            authString = "지원 불가 단말";
+                        break;
+                        case "1":
+                            authString = "등록된 생체인증 없음";
+                        break;
+                        case "2":
+                            authString = "지문 인증";
+                        break;
+                        case "3":
+                            authString = "face ID 인증";
+                        break;
+                    }
+                  $('#apiResult').text( authString);
+               })
+            });
+
+            $('#setLoginType').click(function(){
+                let params = {
+                    "type": "1"
+                };
+                gnx_app_master.call('setLoginType', function(res){
+                    console.log(res);
+                }, params);
+            });
+
+            $('#getLoginType').click(function(){ //0: 등록안됨, 1:간편비번, 2: 생체인증
+                gnx_app_master.call('getLoginType', function(res){
+                    console.log(res);
+                    $('#apiResult').text(res.type);
+                });
+            });
+
+            $('#runAppIron').click(function(){
+                gnx_app_master.call('runAppIron', function(res){
+                    let errCode = res.errCode;
+                    let errMsg = res.errMsg;
+                    let sessionId = res.sessionId;
+                    let tokenId = res.tokenId;
+                    let resultStr = "";
+                    if(errCode != "0000"){
+                        resultStr = 'errCode : '+errCode + ', errMsg :' + errMsg;
+                    } else {
+                        resultStr = 'tokenId : ' + tokenId + ', sessionId : '+ sessionId;
+                    }
+                    $('#apiResult').text(resultStr);
+                });
+            });
+
+            $('#uploadCameraImg').click(function(){
+               gnx_app_master.call('uploadCameraImg', function(res){
+					let resultStr = res.result;
+					 $('#apiResult').text(resultStr);
+               });
+            });
+
+            $('#uploadGalleryImg').click(function(){
+               gnx_app_master.call('uploadGalleryImg', function(res){
+					let resultStr = res.result;
+					 $('#apiResult').text(resultStr);
+               });
+            });
+
+             $('#getPushToken').click(function(){
+ 				gnx_app_master.call('getPushToken', function(res){
+ 					let token = res.token;
+ 					console.log(token);
+ 					$('#apiResult').html(token);
+ 				});
+ 			});
+
+ 			$('#closeApp').click(function(){
+ 				gnx_app_master.call('closeApp', function(res){
+ 					console.log(token);
+ 					$('#apiResult').html(token);
+ 				});
+ 			});
+
+            $('#goOnlineTest').click(function(){
+                location.href = "http://dev.ontree.or.kr:4000/";
+            });
+
+            $('#clearCache').click(function(){
+ 				gnx_app_master.call('clearCache', function(res){
+ 					console.log(token);
+ 					$('#apiResult').html(token);
+ 				});
+ 			});
+
+            $('#connectOscar').click(function(){
+                let params = {
+                    "code": "4321"
+                };
+                gnx_app_master.call('connectOscar', function(res){
+                    let result = res.result;
+                    resultStr = 'result : ' + result;
+                    $('#apiResult').text(resultStr);
+                }, params);
+            });
+
+            $('#writeOscar').click(function(){
+                let params = {
+                    "sign": "askjdhgowieksdn@*#&$HJDKHEKsdjflasjgkahsdlgh"
+                };
+                gnx_app_master.call('writeOscar', function(res){
+                    let result = res.result;
+                    resultStr = 'result : ' + result;
+                    $('#apiResult').text(resultStr);
+                });
+            });
+
+            $('#setTmsId').click(function(){
+                let params = {
+                    "custId": "C080201"
+                };
+                gnx_app_master.call('setTmsId', function(res){
+                    let result = res.result;
+                    resultStr = 'result : ' + result;
+                    $('#apiResult').text(resultStr);
+                }, params);
+            });
+        });
+
+    </script>
+</body>
+</html>

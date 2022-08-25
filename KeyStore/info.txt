@@ -1,0 +1,11 @@
+Key store file
+
+File name : linag
+File password : linag0628
+
+Key :
+	- alias : key_linag
+	- password : linag0628
+
+
+

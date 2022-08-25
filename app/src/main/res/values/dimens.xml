@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Polygon  -->
+    <dimen name="polygonViewCircleWidth">32dp</dimen>
+    <dimen name="polygonViewStrokeWidth">2dp</dimen>
+    <!-- Check Box  -->
+    <dimen name="checkbox_CircleWidth">24dp</dimen>
+    <dimen name="checkbox_StrokeWidth">1dp</dimen>
+
+</resources>

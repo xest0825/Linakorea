@@ -1,0 +1,261 @@
+<resources>
+    <string name="app_name">라이나G</string>
+
+    <!-- Default -->
+    <!-- 공통  -->
+    <string name="common_title">라이나G</string>
+    <string name="common_confirm">확인</string>
+    <string name="common_cancel">취소</string>
+    <string name="common_yes">예</string>
+    <string name="common_no">아니요</string>
+    <string name="common_update">업데이트</string>
+    <string name="common_update_desc_1">앱을 업데이트 합니다.</string>
+    <string name="common_update_desc_2">최신버전이 있습니다.\n앱을 업데이트 하시겠습니까?</string>
+    <string name="common_back">뒤로가기</string>
+    <string name="common_prev">이전</string>
+    <string name="common_network_error">네트워크를 사용할 수 없습니다.</string>
+
+    <!-- 앱접근 권한 동의 -->
+    <string name="permission_title">권한동의</string>
+    <string name="permission_sub_title">선택적 접근 권한</string>
+    <string name="permission_call">전화</string>
+    <string name="permission_call_2">전화걸기</string>
+    <string name="permission_camera">카메라</string>
+    <string name="permission_camera_2">사진 첨부 / 사진 촬영</string>
+    <string name="permission_camera_desc">카메라, 저장소 권한을 승인 해야합니다. [설정]을 클릭시 앱설정으로 이동 합니다.</string>
+    <string name="permission_file">파일 업로드</string>
+    <string name="permission_file_2">파일 업로드 권한</string>
+    <string name="permission_storage">저장공간</string>
+    <string name="permission_storage_2">캐시 등 데이터</string>
+    <string name="permission_desc_1">위 기능들에 대한 접근거부 시 일부 서비스 사용에 제한이 있을 수 있습니다.</string>
+    <string name="permission_desc_2"><![CDATA[접근 권한은 <font color=\'#ED2650\'>설정>앱</font> 또는 <font color=\'#ED2650\'>어플리케이션 관리</font>에서 변경 가능합니다.]]></string>
+    <string name="permission_confirm">확인</string>
+
+    <string name="notification_title">푸시 알림 수신 동의</string>
+    <string name="notification_content_1">GA채널에서 제공하는\n마케팅정보를\n받으시겠습니까?</string>
+    <string name="notification_content_2">푸시알림 변경은\n메뉴 > 설정에서 변경 가능합니다.</string>
+    <string name="notification_disagree">비동의</string>
+    <string name="notification_agree">동의</string>
+    <string name="notification_toast_agree">마켓팅 정보 받기에 동의 하셨습니다.</string>
+    <string name="notification_toast_disagree" translatable="false">마켓팅 정보 받기에 비동의 하셨습니다.</string>
+
+    <!-- Main -->
+    <string name="common_quit_desc" translatable="false">종료하시겠습니까?</string>
+    <string name="common_goto_notice" translatable="false">공지사항으로 이동하시겠습니까?</string>
+
+    <!-- Setting -->
+    <string name="setting_title" translatable="false">설정</string>
+    <string name="setting_back" translatable="false">뒤로</string>
+    <string name="setting_home" translatable="false">홈</string>
+
+    <!-- Gallery -->
+    <string name="gallery_main_title" translatable="false">이미지 업로드</string>
+    <string name="gallery_main_upload" translatable="false">업로드</string>
+    <string name="gallery_select" translatable="false">앨범선택</string>
+    <string name="gallery_bad_file" translatable="false">파일에 문제가 있습니다. 다시 선택해 주세요.</string>
+
+    <!-- Crop -->
+    <string name="crop_review" translatable="false">미리보기</string>
+    <string name="crop_upload" translatable="false">올리기</string>
+    <string name="crop_button" translatable="false">이미지 자르기</string>
+    <string name="crop_apply" translatable="false">적용</string>
+    <string name="crop_cancel" translatable="false">미적용</string>
+    <string name="crop_prev" translatable="false">이전</string>
+    <string name="crop_next" translatable="false">다음</string>
+
+    <!-- Review -->
+    <string name="review_confirm" translatable="false">확인하기</string>
+
+    <!-- Scanner -->
+    <string name="camera_grant" translatable="false">grant camera!</string>
+    <string name="crop" translatable="false">Crop</string>
+    <string name="save" translatable="false">Save</string>
+    <string name="export" translatable="false">Export</string>
+    <string name="delete" translatable="false">Delete</string>
+    <string name="enhance" translatable="false">Enhance</string>
+    <string name="black" translatable="false">Black_White</string>
+    <string name="reset" translatable="false">Reset</string>
+    <string name="scan" translatable="false">Scan</string>
+
+    <!-- attachFile -->
+    <string name="file_down_title" translatable="false">다운로드</string>
+    <string name="file_down_cancel" translatable="false">취소</string>
+    <string name="file_not_found" translatable="false">파일을 찾을 수 없습니다.</string>
+    <string name="file_download_start" translatable="false">파일을 다운로드 합니다.</string>
+    <string name="file_downloading" translatable="false">다운로드를 진행합니다.</string>
+    <string name="file_permission_desc" translatable="false">저장권한을 허용 해야합니다.</string>
+    <!-- Default-->
+
+    <!-- ############ KO, EN 분리 ############ -->
+
+    <!-- 공통  -->
+    <!-- KO -->
+    <string name="common_title_ko" translatable="false">라이나G</string>
+    <string name="common_confirm_ko" translatable="false">확인</string>
+    <string name="common_cancel_ko" translatable="false">취소</string>
+    <string name="common_yes_ko" translatable="false">예</string>
+    <string name="common_no_ko" translatable="false">아니요</string>
+    <string name="common_update_ko" translatable="false">업데이트</string>
+    <string name="common_update_desc_1_ko" translatable="false">앱을 업데이트 합니다.</string>
+    <string name="common_update_desc_2_ko" translatable="false">최신버전이 있습니다.\n앱을 업데이트 하시겠습니까?</string>
+    <string name="common_back_ko" translatable="false">뒤로가기</string>
+    <string name="common_prev_ko" translatable="false">이전</string>
+    <string name="common_network_error_ko" translatable="false">네트워크를 사용할 수 없습니다.</string>
+
+    <!-- EN -->
+    <string name="common_title_en" translatable="false">라이나G</string>
+    <string name="common_confirm_en" translatable="false">Confirm</string>
+    <string name="common_cancel_en" translatable="false">Cancel</string>
+    <string name="common_yes_en" translatable="false">Yes</string>
+    <string name="common_no_en" translatable="false">No</string>
+    <string name="common_update_en" translatable="false">Update</string>
+    <string name="common_update_desc_1_en" translatable="false">Update App</string>
+    <string name="common_update_desc_2_en" translatable="false">There is a latest version.\n\nWould you like to update the app?</string>
+    <string name="common_back_en" translatable="false">Go Back</string>
+    <string name="common_prev_en" translatable="false">Prev</string>
+    <string name="common_network_error_en" translatable="false">Network Unavailable</string>
+
+    <!-- 앱접근 권한 동의 -->
+    <!-- KO -->
+    <string name="permission_title_ko" translatable="false">권한동의</string>
+    <string name="permission_sub_title_ko" translatable="false">선택적 접근 권한</string>
+    <string name="permission_call_ko" translatable="false">전화</string>
+    <string name="permission_call_2_ko" translatable="false">전화걸기</string>
+    <string name="permission_camera_ko" translatable="false">카메라</string>
+    <string name="permission_camera_2_ko" translatable="false">사진 첨부 / 사진 촬영</string>
+    <string name="permission_camera_desc_ko" translatable="false">카메라, 저장소 권한을 승인 해야합니다. [설정]을 클릭시 앱설정으로 이동 합니다.</string>
+    <string name="permission_file_ko" translatable="false">파일 업로드</string>
+    <string name="permission_file_2_ko" translatable="false">파일 업로드 권한</string>
+    <string name="permission_storage_ko" translatable="false">저장공간</string>
+    <string name="permission_storage_2_ko" translatable="false">캐시 등 데이터</string>
+    <string name="permission_desc_1_ko" translatable="false">위 기능들에 대한 접근거부 시 일부 서비스 사용에 제한이 있을 수 있습니다.</string>
+    <string name="permission_desc_2_ko" translatable="false"><![CDATA[접근 권한은 <font color=\'#ED2650\'>설정>앱</font> 또는 <font color=\'#ED2650\'>어플리케이션 관리</font>에서 변경 가능합니다.]]></string>
+    <string name="permission_confirm_ko" translatable="false">확인</string>
+
+    <string name="notification_title_ko" translatable="false">푸시 알림 수신 동의</string>
+    <string name="notification_content_1_ko" translatable="false">GA채널에서 제공하는\n마케팅정보를\n받으시겠습니까?</string>
+    <string name="notification_content_2_ko" translatable="false">푸시알림 변경은\n메뉴 > 설정에서 변경 가능합니다.</string>
+    <string name="notification_disagree_ko" translatable="false">비동의</string>
+    <string name="notification_agree_ko" translatable="false">동의</string>
+    <string name="notification_toast_agree_ko" translatable="false">마켓팅 정보 받기에 동의 하셨습니다.</string>
+    <string name="notification_toast_disagree_ko" translatable="false">마켓팅 정보 받기에 비동의 하셨습니다.</string>
+
+    <!-- EN -->
+    <string name="permission_title_en" translatable="false">Allow access</string>
+    <string name="permission_sub_title_en">Optional access permission</string>
+    <string name="permission_call_en">Phone</string>
+    <string name="permission_call_2_en">Call</string>
+    <string name="permission_camera_en">Camera</string>
+    <string name="permission_camera_2_en">Attach photo / take photo</string>
+    <string name="permission_camera_desc_en">Camera, storage permissions must be approved. Click Settings to go to App Settings.</string>
+    <string name="permission_file_en">Upload file</string>
+    <string name="permission_file_2_en">File upload permission</string>
+    <string name="permission_storage_en">Storage</string>
+    <string name="permission_storage_2_en">Data such as cache</string>
+    <string name="permission_desc_1_en">When access is denied to the above functions, some services may be restricted.</string>
+    <string name="permission_desc_2_en" translatable="false"><![CDATA[Access rights can be changed in <font color=\'#ED2650\'>Settings> Apps</font> or <font color=\'#ED2650\'>Application Management.</font>]]></string>
+    <string name="permission_confirm_en" translatable="false">Confirm</string>
+
+    <string name="notification_title_en" translatable="false">Accept push notification</string>
+    <string name="notification_content_1_en" translatable="false">Would you like to receive\nthe marketing information\nprovided by myHIS?</string>
+    <string name="notification_content_2_en" translatable="false">You can change the push notification\nin the menu > setting.</string>
+    <string name="notification_disagree_en" translatable="false">Don’t allow</string>
+    <string name="notification_agree_en" translatable="false">Allow</string>
+    <string name="notification_toast_agree_en" translatable="false">You have agreed to receive marketing information.</string>
+    <string name="notification_toast_disagree_en" translatable="false">You did not agree to receive marketing information.</string>
+
+    <!-- Main -->
+    <!-- KO -->
+    <string name="common_quit_desc_ko">종료하시겠습니까?</string>
+    <!-- EN -->
+    <string name="common_quit_desc_en">Are you sure you want to exit?</string>
+
+    <!-- Setting -->
+    <!-- KO -->
+    <string name="setting_title_ko">설정</string>
+    <string name="setting_back_ko">뒤로</string>
+    <string name="setting_home_ko">홈</string>
+
+    <!-- EN -->
+    <string name="setting_title_en">Setting</string>
+    <string name="setting_back_en">Go Back</string>
+    <string name="setting_home_en">Home</string>
+
+    <!-- Gallery -->
+    <!-- KO -->
+    <string name="gallery_main_title_ko">이미지 업로드</string>
+    <string name="gallery_main_upload_ko">업로드</string>
+    <string name="gallery_select_ko">앨범선택</string>
+
+    <!-- EN -->
+    <string name="gallery_main_title_en">Image Upload</string>
+    <string name="gallery_main_upload_en">Upload</string>
+    <string name="gallery_select_en">Select album</string>
+
+    <!-- Crop -->
+    <!-- KO -->
+    <string name="crop_review_ko">미리보기</string>
+    <string name="crop_upload_ko">업로드</string>
+    <string name="crop_button_ko">이미지 자르기</string>
+    <string name="crop_apply_ko">적용</string>
+    <string name="crop_cancel_ko">미적용</string>
+    <string name="crop_prev_ko">이전</string>
+    <string name="crop_next_ko">다음</string>
+
+    <!-- EN -->
+    <string name="crop_review_en">Preview</string>
+    <string name="crop_upload_en">Upload</string>
+    <string name="crop_button_en">Crop image</string>
+    <string name="crop_apply_en">Apply</string>
+    <string name="crop_cancel_en">Cancel</string>
+    <string name="crop_prev_en">Prev</string>
+    <string name="crop_next_en">Next</string>
+
+    <!-- Review -->
+    <!-- KO -->
+    <string name="review_confirm_ko">확인하기</string>
+
+    <!-- EN -->
+    <string name="review_confirm_en">Confirm</string>
+
+
+    <!-- Scanner -->
+    <!-- KO -->
+    <string name="camera_grant_ko">grant camera!</string>
+    <string name="crop_ko">Crop</string>
+    <string name="save_ko">Save</string>
+    <string name="export_ko">Export</string>
+    <string name="delete_ko">Delete</string>
+    <string name="enhance_ko">Enhance</string>
+    <string name="black_ko">Black_White</string>
+    <string name="reset_ko">Reset</string>
+    <string name="scan_ko">Scan</string>
+
+    <!-- EN -->
+    <string name="camera_grant_en">grant camera!</string>
+    <string name="crop_en">Crop</string>
+    <string name="save_en">Save</string>
+    <string name="export_en">Export</string>
+    <string name="delete_en">Delete</string>
+    <string name="enhance_en">Enhance</string>
+    <string name="black_en">Black_White</string>
+    <string name="reset_en">Reset</string>
+    <string name="scan_en">Scan</string>
+
+    <!-- attachFile -->
+    <!-- KO -->
+    <string name="file_down_title_ko">다운로드</string>
+    <string name="file_down_cancel_ko">취소</string>
+    <string name="file_not_found_ko">파일을 찾을 수 없습니다.</string>
+    <string name="file_download_start_ko">파일을 다운로드 합니다.</string>
+    <string name="file_downloading_ko">다운로드를 진행합니다.</string>
+    <string name="file_permission_desc_ko">저장권한을 허용 해야합니다.</string>
+
+    <!-- EN -->
+    <string name="file_down_title_en">Download</string>
+    <string name="file_down_cancel_en">Cancel</string>
+    <string name="file_not_found_en">File could not be found.</string>
+    <string name="file_download_start_en">Downloading files.</string>
+    <string name="file_downloading_en">Proceed to download.</string>
+    <string name="file_permission_desc_en">Permission to save required.</string>
+</resources>

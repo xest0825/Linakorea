@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "106906648660",
+    "project_id": "linag-ed9c7",
+    "storage_bucket": "linag-ed9c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106906648660:android:a1cdcc7b298b373aa02dc1",
+        "android_client_info": {
+          "package_name": "kr.co.lina.ga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106906648660-j4r3qkrfd4c0but2kt5icr4c7ufp5pap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWustWD8aI79npbipRU3XO63WeFfmX4pA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106906648660-j4r3qkrfd4c0but2kt5icr4c7ufp5pap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

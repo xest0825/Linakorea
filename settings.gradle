@@ -1,0 +1,3 @@
+rootProject.name = "라이나G"
+include ':app'
+include ':documentscanner'

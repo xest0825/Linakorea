@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="kr.co.lina.ga">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" /> <!-- 오디오 -->
+    <uses-feature android:name="android.hardware.camera2.full"
+        android:required="false"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 네트웍 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 위치 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- for Vaccine -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES " />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES " />-->
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+
+    <application
+        android:allowBackup="true"
+        android:extractNativeLibs="true"
+        android:label="${appLabel}"
+        tools:replace="android:label"
+        android:requestLegacyExternalStorage="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GAChannel"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_config"
+        android:hardwareAccelerated="false">
+        <activity
+            android:name=".vestpin.VestPinActivity2"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.permission.PermissionActivity"
+            android:screenOrientation="portrait"/> <!-- <activity android:name=".scanner.crop.CropActivity" /> -->
+        <!-- <activity android:name=".scanner.scan.ScanActivity" /> -->
+        <activity android:name=".scanner.ImageCropActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".photogallery.ImagesPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".photogallery.GalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.splash.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="main_page" android:scheme="linaga" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.softsecurity.transkey.TransKeyActivity" android:screenOrientation="portrait"/> <!-- Vaccine -->
+        <!-- mini mode -->
+        <activity
+            android:name="com.TouchEn.mVaccine.b2b2c.activity.BackgroundScanActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.mVaccine.Transparent"
+            tools:replace="android:label"
+            android:screenOrientation="portrait" /> <!-- 악성코드 탐지결과 다이얼로그를 표시하기 위한 액티비티 -->
+        <activity
+            android:name="com.TouchEn.mVaccine.b2b2c.activity.BackgroundScan"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.mVaccine.Transparent"
+            tools:replace="android:label"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.TouchEn.mVaccine.b2b2c.activity.ResultLogActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.mVaccine.NoTitleBar"
+            tools:replace="android:label" />
+        <activity
+            android:name=".vestpin.VestPinActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".vestpin.WebViewActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".vestpin.BioAuthActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <!-- 실시간 검사를 위한 서비스 -->
+        <service
+            android:name="com.TouchEn.mVaccine.b2b2c.service.OnInstallService"
+            android:process=":remote" /> <!-- 백그라운드 구동시 악성코드 검사 결과 전달을 위한 서비스 -->
+        <service
+            android:name="com.TouchEn.mVaccine.b2b2c.service.DetectionResultSendService"
+            android:process=":remote" /> <!-- 루팅세부검사를 위한 서비스 ( Internal Rooting Check 마운트검사(2번) 사용시 등록 ) -->
+        <service
+            android:name="com.TouchEn.mVaccine.b2b2c.service.MvcIsolService"
+            android:enabled="true"
+            android:isolatedProcess="true"
+            android:process=":mvcIsolService" /> <!-- ============================ 앱 위변조 AppIron  ============================ -->
+        <service
+            android:name="com.barun.appiron.android.service.AppIronService"
+            android:enabled="true"
+            android:isolatedProcess="true"
+            android:process=":tmpAppIronService"
+            tools:targetApi="jelly_bean" /> <!-- 파일 프로바이더 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+        <provider
+            android:name="com.yettiesoft.vestpin.storage.VPProvider"
+            android:authorities="kr.co.lina.ga.VPContentProvider"
+            android:exported="false"
+            android:readPermission="com.yettiesoft.vestpin.storage.READ_DATABASE"
+            android:writePermission="com.yettiesoft.vestpin.storage.WRITE_DATABASE" /> <!-- mVaccine 스캔 탐지 결과를 브로드캐스트로 수신할 때 사용 -->
+        <receiver
+            android:name=".vaccine.CodeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.TouchEn.mVaccine.b2b2c.FIRE" />
+            </intent-filter>
+        </receiver>
+
+        // Push
+        <!-- Push -->
+<!--        <service-->
+<!--            android:name=".ui.push.GaPushService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+
+        <!-- SDK Setting (Required) -->
+        <receiver
+            android:name="com.tms.sdk.push.PushReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.fcm.intent.RECEIVE"/>
+                <action android:name="org.mosquitto.android.mqtt.MSGRECVD"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.tms.sdk.push.FCMPushService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!--작은 아이콘 설정 (Required)-->
+        <meta-data android:name="TMS_SET_ICON" android:resource="@drawable/ic_notification"/>
+
+        <!-- SDK Android 9.0 Supports (Required) -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+
+        <!-- User Receivers (Optional) -->
+        <receiver android:name=".ui.push.NotificationEventReceiver"/>
+        <receiver android:name=".ui.push.NotificationClickReceiver"/>
+
+        <receiver android:name="com.tms.sdk.push.mqtt.RestartReceiver">
+            <intent-filter>
+                <action android:name="MQTT.START" />
+                <action android:name="MQTT.FORCE_START" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

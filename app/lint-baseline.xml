@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.1.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.1.1)" variant="fatal" version="7.1.1">
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-land has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>4dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-land/transkey_dimens.xml"
+            line="12"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-land-hdpi-1024x600 has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>4dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-land-hdpi-1024x600/transkey_dimens.xml"
+            line="12"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-land-mdpi-1024x600 has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>6dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-land-mdpi-1024x600/transkey_dimens.xml"
+            line="12"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-xlarge-land has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>8dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-xlarge-land/transkey_dimens.xml"
+            line="12"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-hdpi-1024x600 has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>21dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-hdpi-1024x600/transkey_dimens.xml"
+            line="13"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-ldpi-320x240 has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>5dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ldpi-320x240/transkey_dimens.xml"
+            line="14"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-mdpi-1024x600 has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>31dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-mdpi-1024x600/transkey_dimens.xml"
+            line="14"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The dimen &quot;done_margin_top&quot; in values-xlarge has no declaration in the base `values` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1=" &lt;dimen name=&quot;done_margin_top&quot;>42dip&lt;/dimen>    "
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-xlarge/transkey_dimens.xml"
+            line="14"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_land_bg&quot; in drawable-land has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-land/transkey_land_bg.png"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_land_bg&quot; in drawable-land-hdpi has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-land-hdpi/transkey_land_bg.png"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_landscape_alnum_cmd_4&quot; in drawable-land has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-land/transkey_landscape_alnum_cmd_4.png"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_number_cmd_random_0_land_down&quot; in drawable-xlarge has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-xlarge/transkey_number_cmd_random_0_land_down.png"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_number_cmd_random_3_land_down&quot; in drawable-xlarge has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-xlarge/transkey_number_cmd_random_3_land_down.png"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_number_cmd_random_5_2_land_down&quot; in drawable-xlarge has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-xlarge/transkey_number_cmd_random_5_2_land_down.png"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The drawable &quot;transkey_number_cmd_random_5_land_down&quot; in drawable-xlarge has no declaration in the base `drawable` folder or in a `drawable-`*density*`dpi` folder; this can lead to crashes when the drawable is queried in a configuration that does not match this qualifier">
+        <location
+            file="src/main/res/drawable-xlarge/transkey_number_cmd_random_5_land_down.png"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as \&#xA;a value for `size` in the scrolling direction."
+        errorLine1="        mRecyclerView.setHasFixedSize(true)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/kr/co/lina/ga/photogallery/GalleryActivity.kt"
+            line="77"
+            column="9"/>
+    </issue>
+
+</issues>

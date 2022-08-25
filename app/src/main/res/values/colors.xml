@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#150f96</color>
+    <color name="colorSplashBack">#e9f5ef</color>
+    <color name="colorPrimary2">#150f96</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGreen">#00FF00</color>
+    <color name="colorBlue">#0000FF</color>
+    <color name="colorPush">#150F96</color>
+    <color name="colorSkyGray">#D7D7D7</color>
+
+    <color name="colorWa">#FFFFFF</color>
+
+    <color name="color_122_169_239">#7AA9EF</color>
+    <color name="bottom_background_color">#ffc4c2bc</color>
+
+    <color name="blue">#ff59a9ff</color>
+    <color name="orange">#ffff900d</color>
+
+    <!-- Gallery Gray -->
+    <color name="colorGrayLine">#999999</color>
+
+    <!-- Polygon Crop -->
+    <color name="polygonViewCircleStrokeColor">#ff59a9ff</color>
+    <color name="polygonViewCircleBackground">#90e5f8ff</color>
+
+    <!-- Check Box -->
+    <color name="checkbox_StrokeColor">#ff59a9ff</color>
+    <color name="checkbox_Background">#90e5f8ff</color>
+
+
+    <color name="colorGray">#808080</color>
+    <color name="colorDarkGray">#A9A9A9</color>
+
+
+    <!-- Scanner  -->
+    <color name="colorTransparent">#00ffffff</color>
+
+</resources>

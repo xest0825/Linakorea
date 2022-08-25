@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".photogallery.GalleryActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gallery_main_title"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorBlack"
+            android:gravity="center"
+            android:text="@string/gallery_main_title"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/gallery_main_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/gallery_main_title"
+            android:background="@color/colorGrayLine" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gallery_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gallery_main_line"
+            android:layout_marginBottom="56dp"
+            android:clipToPadding="false" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/gallery_main_btn_upload"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:background="@color/colorBlack"
+                android:text="@string/gallery_main_upload"
+                android:textColor="@color/colorWhite"
+                android:textSize="13.5sp"
+                android:lineHeight="36.5sp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="23sp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
