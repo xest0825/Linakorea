@@ -9,6 +9,11 @@
     <uses-feature android:name="android.hardware.camera2.full"
         android:required="false"/>
 
+    <!--라이나케어멤버쉽-->
+    <queries>
+        <package android:name="com.sk.benepia.linacare"></package>
+    </queries>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
@@ -19,7 +24,7 @@
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES " />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-<!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES " />-->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES " /> <!-- 외부 앱 접근 허용-->
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
 
     <application
@@ -34,7 +39,7 @@
         android:theme="@style/Theme.GAChannel"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_config"
-        android:hardwareAccelerated="false">
+        android:hardwareAccelerated="true">
         <activity
             android:name=".vestpin.VestPinActivity2"
             android:exported="false"
@@ -42,10 +47,13 @@
         <activity android:name=".ui.permission.PermissionActivity"
             android:screenOrientation="portrait"/> <!-- <activity android:name=".scanner.crop.CropActivity" /> -->
         <!-- <activity android:name=".scanner.scan.ScanActivity" /> -->
-        <activity android:name=".scanner.ImageCropActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".scanner.ImageCropActivity" android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
         <activity android:name=".ui.setting.SettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".photogallery.ImagesPhotoActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".photogallery.GalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".photogallery.ImagesPhotoActivity" android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".photogallery.GalleryActivity" android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
         <activity android:name=".ui.splash.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
