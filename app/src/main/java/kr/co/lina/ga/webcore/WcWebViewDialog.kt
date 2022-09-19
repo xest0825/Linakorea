@@ -29,6 +29,7 @@ import kr.co.lina.ga.utils.WaSharedPreferences
 import kr.co.lkins.EHB.permission.PermissionFactory
 import kr.co.lkins.EHB.webcore.WcWebBridge
 import java.io.File
+import java.net.URLDecoder
 
 /**
  * 웹뷰 다이얼로그
@@ -262,7 +263,11 @@ class WcWebViewDialog(context: Context, attributeSet: Int) : Dialog(context, att
                 }
                 else if (url.contains(".pdf")) {
                     //WcWeb.loadUrlPage(context, view!!, "http://drive.google.com/viewerng/viewer?embedded=true&url=" + url);
-                    view!!.loadUrl("http://docs.google.com/gview?embedded=true&url=" + url);
+                    if(url.contains("download?filePathName")){
+                        return false
+                    } else {
+                        view!!.loadUrl("http://docs.google.com/gview?embedded=true&url=" + url);
+                    }
                     return false
                 }
                 else if (url.startsWith("https") || url.startsWith("http")) {
@@ -517,9 +522,10 @@ class WcWebViewDialog(context: Context, attributeSet: Int) : Dialog(context, att
         mSubWebView.getSettings().setPluginState(PluginState.ON)
 
         mSubWebView.setDownloadListener(DownloadListener { url, userAgent, contentDisposition, mimeType, contentLength ->
-            mSubWebView.loadUrl(
+            /*mSubWebView.loadUrl(
                 JavaScriptInterface.getBase64StringFromBlobUrl(url)
-            )
+            )*/
+            downloadProcess(url, userAgent, contentDisposition, mimeType)
         })
     }
 
@@ -556,7 +562,7 @@ class WcWebViewDialog(context: Context, attributeSet: Int) : Dialog(context, att
             val content = dnContentDisposition!!.replace("""[\";,"]""".toRegex(), "")
             Log.i(tag, "DownloadListener content: $content")
 
-            val filename = content.substring(DOWNLOAD_FILENAME_PREFIX.length, content.length)
+            val filename = URLDecoder.decode(content.substring(DOWNLOAD_FILENAME_PREFIX.length, content.length))
             Log.i(tag, "DownloadListener fileName:$filename")
 
             val file =
