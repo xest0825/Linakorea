@@ -49,6 +49,7 @@ import kr.co.lkins.EHB.webcore.WcWebBridge
 import org.json.JSONObject
 import java.io.File
 import java.io.IOException
+import java.net.URLDecoder
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -169,6 +170,27 @@ class MainActivity : LocalizationActivity(), OnLocaleChangedListener {
                 gotoNoticePage("onCreate")
             }
             else {
+                val strDeepLink = intent?.dataString
+                val uri = intent.data;
+                if (uri != null) {
+                    var targetUrl = uri.getQueryParameter("targetUrl")
+                    var reqPlatformTyp= uri.getQueryParameter("reqPlatformTyp")
+                    var targetPlatformTyp= uri.getQueryParameter("targetPlatformTyp")
+
+                    if(targetUrl == null ) {
+                        targetUrl = "";
+                    }
+
+                    if(reqPlatformTyp == null ) {
+                        reqPlatformTyp = "";
+                    }
+
+                    if(targetPlatformTyp == null ) {
+                        targetPlatformTyp = "";
+                    }
+
+                    gotoGateWay(targetPlatformTyp.toString(), reqPlatformTyp.toString(), targetUrl.toString())
+                }
                 //main_webview.loadUrl(newUrl)
                 Log.d("PUSH", "onCreate")
             }
@@ -255,14 +277,33 @@ class MainActivity : LocalizationActivity(), OnLocaleChangedListener {
             if (intent?.data != null) {
                 val strDeepLink = intent?.dataString
                 if (strDeepLink != null && strDeepLink != "" && strDeepLink.startsWith("linaga")) {
-                    val arr = strDeepLink.split("url=")
-                    mWebView?.post {
-                        val str = "javascript:redirectUrl('" + arr[1] + "');"
-                        mWebView.loadUrl(str)
+                    // 2022-09-13 딥링크 분기처리
+                    if(strDeepLink.contains("url=")) {
+                        val arr = strDeepLink.split("url=")
+                        mWebView?.post {
+                            val str = "javascript:redirectUrl('" + arr[1] + "');"
+                            mWebView.loadUrl(str)
+                        }
+                    }
+
+                    // 2022-09-13 딥링크 분기처리
+                    if (strDeepLink.contains("targetPlatformTyp=")) {
+                        val arr = strDeepLink.split("main_page?")
+                        val newUrl = ServerUrls.MAIN_URL+"?"+arr[1]
+                        mWebView?.post {
+                            mWebView?.loadUrl(newUrl)
+                        }
+
                     }
                 }
             } else {
             }
+        }
+    }
+
+    fun gotoGateWay(target: String, req: String, url: String, ) {
+        mWebView?.post {
+            mWebView?.loadUrl(ServerUrls.MAIN_URL+ "?targetPlatformTyp="+target+"&reqPlatformTyp="+req+"&targetUrl="+url)
         }
     }
 
@@ -750,8 +791,8 @@ class MainActivity : LocalizationActivity(), OnLocaleChangedListener {
             //    Toast.makeText(this, R.string.file_not_found, Toast.LENGTH_LONG).show()
             //    return
             //}
-
-            val filename = content.substring(DOWNLOAD_FILENAME_PREFIX.length, content.length)
+            /* 20220906 수정 : 한글 깨짐 오류 수정 */
+            val filename = URLDecoder.decode(content.substring(DOWNLOAD_FILENAME_PREFIX.length, content.length))
             Log.i(tag, "DownloadListener fileName:$filename")
 
             val file =
