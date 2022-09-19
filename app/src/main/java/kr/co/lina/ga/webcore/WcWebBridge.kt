@@ -5,6 +5,7 @@ import android.content.Intent
 import android.hardware.biometrics.BiometricManager
 import android.hardware.biometrics.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import android.hardware.biometrics.BiometricManager.Authenticators.DEVICE_CREDENTIAL
+import android.net.Uri
 import android.os.Build
 import android.webkit.JavascriptInterface
 import androidx.biometric.BiometricManager.from
@@ -348,6 +349,37 @@ class WcWebBridge(private val context: Context) {
 
         // write to Oscar server
         TmsPush.setTmsId(context, value)
+    }
+
+    @JavascriptInterface
+    fun goBenepia(msg: String){
+        val json = JSONObject(msg)
+        val value = json.getString("data")
+        Log.i(tag, "베네피아");
+        val inResult = context.getPackageManager().getLaunchIntentForPackage("com.sk.benepia.linacare");
+        if(inResult != null) {
+            val intent = Intent(inResult)
+            intent.putExtra("data", value)
+            context.startActivity(intent);
+        } else {
+            val returnJson = JsonObject()
+            val webview = (context as? MainActivity)?.mWebView
+            returnJson.addProperty("installed", "false")
+            val returnStr = "javascript:gnx_app_callback('goBenepia',"+ returnJson + ");"
+            webview?.post{
+                webview?.loadUrl(returnStr);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    fun openExternalLink(msg: String) {
+        val json = JSONObject(msg)
+        val link = json.getString("link")
+
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(link)
+        context.startActivity(intent)
     }
 
     /** 설정화면 이동 */
