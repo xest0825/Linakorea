@@ -7,8 +7,9 @@ import android.webkit.WebView;
 
 import com.google.gson.JsonObject;
 import com.google.gson.internal.Streams;
-import com.yettiesoft.oscar.service.Oscar;
-import com.yettiesoft.oscar.service.OscarCallback;
+import com.yettiesoft.oscar.service.*;
+/*import com.yettiesoft.oscar.service.Oscar;
+import com.yettiesoft.oscar.service.OscarCallback;*/
 import com.yettiesoft.oscar.type.OSCARError;
 
 import org.jetbrains.annotations.NotNull;
