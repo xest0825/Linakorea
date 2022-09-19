@@ -91,6 +91,8 @@
 -keep public class com.yettiesoft.oscar.service.OscarCallback  { *; }
 -keep public class com.yettiesoft.oscar.service.ConnectNative { *; }
 -keep public class com.yettiesoft.oscar.network.HTTP { *; }
+# 2022-08-30
+-keep public class com.yettiesoft.** { *; }
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
